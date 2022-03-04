@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const userSchema = new mongoose.Schema({
     wallet: {
         type: String,
-        default: null
+        unique: true,
     },
     balance: {
         type: String,
@@ -11,7 +11,6 @@ const userSchema = new mongoose.Schema({
     },
     token: {
         type: String,
-        default: null
     }
 });
 

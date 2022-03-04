@@ -4,9 +4,7 @@ var router = express.Router();
 const auth = require('../middleware/auth');
 const User = require('../models/user');
 const jwt = require("jsonwebtoken");
-const {
-    use
-} = require('../app');
+
 
 // create user with JWT
 router.post('/', auth, async function (req, res) {
@@ -29,11 +27,10 @@ router.post('/', auth, async function (req, res) {
             return res.status(409).send("User Already Exist. Please Login");
         }
 
-
         // Create user in our database
         const user = await User.create({
             wallet,
-            balance,
+            balance
         });
 
         const token = jwt.sign({
